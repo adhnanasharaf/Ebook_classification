@@ -2,6 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import booksRouter from './routes/books';
 import db from './db/database';  // Import the database
+import dotenv from 'dotenv';
+dotenv.config();
 
 const app = express();
 const port = 5000;

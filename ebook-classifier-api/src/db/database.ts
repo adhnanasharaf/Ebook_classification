@@ -33,7 +33,8 @@ db.serialize(() => {
       title TEXT NOT NULL,
       author TEXT NOT NULL,
       excerpt TEXT NOT NULL,
-      tags TEXT
+      tags TEXT,
+      processed_at TEXT
     )
   `, (err) => {
     if (err) {
