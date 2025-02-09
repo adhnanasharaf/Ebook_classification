@@ -32,6 +32,7 @@ db.serialize(() => {
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       title TEXT NOT NULL,
       author TEXT NOT NULL,
+      path TEXT,
       excerpt TEXT NOT NULL,
       tags TEXT,
       processed_at TEXT

@@ -1,6 +1,16 @@
 {
+  "name": "ebook-classifier",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "start-backend": "cd ebook-classifier-api && npm start",
+    "start-frontend": "cd ebook-classifier-ui && npm start"
+  },
   "dependencies": {
+    "axios": "^1.6.7",
+    "commander": "^12.0.0",
     "dotenv": "^16.4.7",
+    "open": "^10.0.4",
     "web-vitals": "^4.2.4"
   }
 }
