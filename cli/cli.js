@@ -20,26 +20,19 @@ async function isServiceRunning(url) {
     await axios.get(url);
     return true;
   } catch (error) {
-<<<<<<< HEAD
-    if (error.code === 'ECONNREFUSED') {
+    if (error.code === "ECONNREFUSED") {
       return false;
     }
     // If we get any response from the server, even an error, it means it's running
     return error.response !== undefined;
-=======
-    return false;
->>>>>>> new-branch-name
   }
 }
 
 // Start backend server
 async function startBackend() {
-<<<<<<< HEAD
+  // Check if backend is already running
   if (await isServiceRunning(`${API_URL}/`)) {
-=======
-  if (await isServiceRunning(`${API_URL}/books/status`)) {
->>>>>>> new-branch-name
-    console.log("Backend is already running");
+    console.log(`Backend is already running on ${API_URL}`);
     return;
   }
 
@@ -51,27 +44,17 @@ async function startBackend() {
 
   // Wait for backend to start
   let attempts = 0;
-<<<<<<< HEAD
-  while (attempts < 30) { 
+  while (attempts < 30) {
     if (await isServiceRunning(`${API_URL}/`)) {
-      console.log("Backend server is ready");
+      console.log(`Backend server is ready on ${API_URL}`);
       return;
     }
     await new Promise((resolve) => setTimeout(resolve, 1000));
     attempts++;
   }
-  throw new Error("Failed to start backend server. Please check the server logs for more details.");
-=======
-  while (attempts < 15) {
-    if (await isServiceRunning(`${API_URL}/books/status`)) {
-      console.log("Backend server is ready");
-      return;
-    }
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-    attempts++;
-  }
-  throw new Error("Failed to start backend server");
->>>>>>> new-branch-name
+  throw new Error(
+    "Failed to start backend server. Please check the server logs for more details."
+  );
 }
 
 // Start frontend server
